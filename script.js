@@ -27,7 +27,7 @@ const storyScenes = [
         id: 's4',
         videoSrc: ['videos/scene5.mp4', 'videos/scene4.mp4' ],
         audioSrc: 'audio/scene4.m4a',
-        text: 'Wohoo! Up above the clouds and zooming across the sky, all the way to Bengal. We made it!',
+        text: 'Wohoo! Up above the clouds and zooming across the sky, all the way to Chandannagar! 🎈',
         buttonText: 'Join my birthday party 🏡',
         bgColor: 'linear-gradient(135deg, #AEC6CF, #FFFFFF)'
     },
@@ -35,7 +35,7 @@ const storyScenes = [
         id: 's6',
         videoSrc: ['videos/scene6.mp4'],
         audioSrc: 'audio/scene6.m4a',
-        text: 'Drums are beating, lights are glowing, and the whole family is waiting. Come celebrate my 5th birthday with me! 🎉',
+        text: 'Drums are beating, lights are glowing, come celebrate my 5th birthday with me! 🎉',
         buttonText: 'Replay the journey 🔄',
         bgColor: 'linear-gradient(135deg, #FFD700, #FF6347)',
         showOverlay: true
