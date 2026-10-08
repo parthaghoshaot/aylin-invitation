@@ -2,7 +2,7 @@ const storyScenes = [
     {
         id: 's1',
         videoSrc: ['videos/scene1_1.mp4', 'videos/scene1_2.mp4'],
-        audioSrc: 'audio/scene1.mp3',
+        audioSrc: 'audio/scene1.m4a',
         text: 'Hi, I am Aylin! ✨ Psst... I have a little secret, and I cannot wait to share it with you!',
         buttonText: 'Tell me the secret 💫',
         bgColor: 'linear-gradient(135deg, #FFDAB9, #FFD1DC)'
@@ -10,7 +10,7 @@ const storyScenes = [
     {
         id: 's2',
         videoSrc: ['videos/scene2.mp4'],
-        audioSrc: 'audio/scene2.mp3',
+        audioSrc: 'audio/scene2.m4a',
         text: 'My 5th birthday is almost here! I closed my eyes, made the biggest wish ever, and it was all about celebrating with YOU.',
         buttonText: 'Let\'s pack our bags 🧳',
         bgColor: 'linear-gradient(135deg, #FFDAB9, #FFD1DC)'
@@ -18,7 +18,7 @@ const storyScenes = [
     {
         id: 's3',
         videoSrc: ['videos/scene3_2.mp4', 'videos/scene3_1mp4.mp4'],
-        audioSrc: 'audio/scene3.mp3',
+        audioSrc: 'audio/scene3.m4a',
         text: 'Teddy is in, snacks are in, and my suitcase is zipped up tight. Are you ready for an adventure too?',
         buttonText: 'Ready, set, take off! ✈️',
         bgColor: 'linear-gradient(135deg, #FFD1DC, #AEC6CF)'
@@ -26,7 +26,7 @@ const storyScenes = [
     {
         id: 's4',
         videoSrc: ['videos/scene5.mp4', 'videos/scene4.mp4' ],
-        audioSrc: 'audio/scene4.mp3',
+        audioSrc: 'audio/scene4.m4a',
         text: 'Wohoo! Up above the clouds and zooming across the sky, all the way to Bengal. We made it!',
         buttonText: 'Join my birthday party 🏡',
         bgColor: 'linear-gradient(135deg, #AEC6CF, #FFFFFF)'
@@ -34,7 +34,7 @@ const storyScenes = [
     {
         id: 's6',
         videoSrc: ['videos/scene6.mp4'],
-        audioSrc: 'audio/scene6.mp3',
+        audioSrc: 'audio/scene6.m4a',
         text: 'Drums are beating, lights are glowing, and the whole family is waiting. Come celebrate my 5th birthday with me! 🎉',
         buttonText: 'Replay the journey 🔄',
         bgColor: 'linear-gradient(135deg, #FFD700, #FF6347)',

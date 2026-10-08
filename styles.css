@@ -7,8 +7,9 @@
 body, html {
     margin: 0;
     padding: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    /* dvh = visible area; 100vh on mobile includes space hidden under browser toolbars */
+    height: 100dvh;
     font-family: 'Quicksand', sans-serif;
     color: var(--text-color);
     background: linear-gradient(135deg, #FFDAB9, #FFD1DC);
@@ -74,7 +75,7 @@ h1 {
 
 /* Mobile-only Story Screen Layout */
 #story-screen {
-    padding: 15px 15px 30px 15px; /* extra padding at bottom for iOS home bar */
+    padding: 12px 12px calc(12px + env(safe-area-inset-bottom)) 12px;
     box-sizing: border-box;
     justify-content: space-between;
 }
@@ -88,13 +89,15 @@ h1 {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
+/* Absolute so the video's intrinsic height can't stretch the flex layout */
 #story-video {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
-    max-height: 100%;
     object-fit: contain; /* ensures the entire 9:16 video fits without cropping */
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
@@ -106,19 +109,20 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
+    flex-shrink: 0;
 }
 
 .story-narrative {
     width: 100%;
-    padding: 1.2rem;
+    padding: 0.8rem 1rem;
     box-sizing: border-box;
     text-align: center;
 }
 
 .story-narrative p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
     font-weight: 700;
     line-height: 1.4;
 }
@@ -137,8 +141,8 @@ button {
     background-color: #FF8BA7;
     color: white;
     border: none;
-    padding: 14px 20px;
-    font-size: 1.05rem;
+    padding: 12px 18px;
+    font-size: 1rem;
     border-radius: 50px;
     cursor: pointer;
     box-shadow: 0 4px 15px rgba(255, 139, 167, 0.4);
