@@ -3,48 +3,40 @@ const storyScenes = [
         id: 's1',
         videoSrc: ['videos/scene1_1.mp4', 'videos/scene1_2.mp4'],
         audioSrc: 'audio/scene1.mp3',
-        text: 'Hi, I am Aylin! ✨ Welcome to my world in Stuttgart, Germany. I am so excited to share a very magical story with you today...',
-        buttonText: 'See her wish 💫',
+        text: 'Hi, I am Aylin! ✨ Psst... I have a little secret, and I cannot wait to share it with you!',
+        buttonText: 'Tell me the secret 💫',
         bgColor: 'linear-gradient(135deg, #FFDAB9, #FFD1DC)'
     },
     {
         id: 's2',
         videoSrc: ['videos/scene2.mp4'],
         audioSrc: 'audio/scene2.mp3',
-        text: 'With my 5th birthday fast approaching, I closed my eyes and made a beautiful birthday wish to celebrate with all my family and friends.',
-        buttonText: 'The Secret Plan 🧳',
+        text: 'My 5th birthday is almost here! I closed my eyes, made the biggest wish ever, and it was all about celebrating with YOU.',
+        buttonText: 'Let\'s pack our bags 🧳',
         bgColor: 'linear-gradient(135deg, #FFDAB9, #FFD1DC)'
     },
     {
         id: 's3',
-        videoSrc: ['videos/scene3_1mp4.mp4', 'videos/scene3_2.mp4'],
+        videoSrc: ['videos/scene3_2.mp4', 'videos/scene3_1mp4.mp4'],
         audioSrc: 'audio/scene3.mp3',
-        text: 'My parents secretly planned a wonderful surprise! They packed my favorite things into a little suitcase for an amazing trip.',
-        buttonText: 'Take Off ✈️',
+        text: 'Teddy is in, snacks are in, and my suitcase is zipped up tight. Are you ready for an adventure too?',
+        buttonText: 'Ready, set, take off! ✈️',
         bgColor: 'linear-gradient(135deg, #FFD1DC, #AEC6CF)'
     },
     {
         id: 's4',
-        videoSrc: ['videos/scene4.mp4'],
+        videoSrc: ['videos/scene5.mp4', 'videos/scene4.mp4' ],
         audioSrc: 'audio/scene4.mp3',
-        text: 'Soon, we were high up in the clouds on an Emirates flight, soaring happily towards India!',
-        buttonText: 'Arrive in Bengal ☁️',
-        bgColor: 'linear-gradient(135deg, #AEC6CF, #FFFFFF)'
-    },
-    {
-        id: 's5',
-        videoSrc: ['videos/scene5.mp4'],
-        audioSrc: 'audio/scene5.mp3',
-        text: 'When we arrived in Bengal, I received the warmest, most loving welcome from my family.',
-        buttonText: 'Celebrate Durga Puja 🏡',
+        text: 'Wohoo! Up above the clouds and zooming across the sky, all the way to Bengal. We made it!',
+        buttonText: 'Join my birthday party 🏡',
         bgColor: 'linear-gradient(135deg, #AEC6CF, #FFFFFF)'
     },
     {
         id: 's6',
         videoSrc: ['videos/scene6.mp4'],
         audioSrc: 'audio/scene6.mp3',
-        text: 'And now, I invite YOU to join my 5th birthday celebration! We even got to celebrate the magic of Durga Puja together.',
-        buttonText: 'Replay Journey 🔄',
+        text: 'Drums are beating, lights are glowing, and the whole family is waiting. Come celebrate my 5th birthday with me! 🎉',
+        buttonText: 'Replay the journey 🔄',
         bgColor: 'linear-gradient(135deg, #FFD700, #FF6347)',
         showOverlay: true
     }
@@ -138,18 +130,10 @@ storyVideo.addEventListener('ended', () => {
         // Entire scene is done, show button and start 5s timer
         nextBtn.classList.remove('hidden');
         
-        autoTransitionTimer = setTimeout(() => {
-            goToNextScene();
-        }, 5000);
-    }
-});
-
-// Fallback just in case 'loadeddata' acts as a safeguard
-storyVideo.addEventListener('loadeddata', () => {
-    const scene = storyScenes[currentSceneIndex];
-    // Only show fallback if we are on the LAST sub-video of the scene
-    if (currentSubVideoIndex === scene.videoSrc.length - 1) {
-        setTimeout(() => { nextBtn.classList.remove('hidden'); }, 3000);
+        // Auto-advance disabled for development
+        // autoTransitionTimer = setTimeout(() => {
+        //     goToNextScene();
+        // }, 5000);
     }
 });
 
