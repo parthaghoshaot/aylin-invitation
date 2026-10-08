@@ -1,0 +1,208 @@
+:root {
+    --text-color: #5D5D5D;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --plum-text: #4A0E2E;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    color: var(--text-color);
+    background: linear-gradient(135deg, #FFDAB9, #FFD1DC);
+    transition: background 1.5s ease-in-out;
+    overflow: hidden; /* strictly no scrolling, feels native */
+}
+
+#app {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease-in-out;
+}
+
+.screen.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Welcome Screen Centering */
+#welcome-screen {
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card {
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.welcome-card {
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+h1 {
+    font-family: 'Nunito', sans-serif;
+    color: #FF7096;
+    margin-top: 0;
+    font-size: 2.2rem;
+}
+
+/* Mobile-only Story Screen Layout */
+#story-screen {
+    padding: 15px 15px 30px 15px; /* extra padding at bottom for iOS home bar */
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    flex: 1; /* Takes up all available height above the text */
+    min-height: 0; /* allows flex box to shrink properly */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-bottom: 15px;
+}
+
+#story-video {
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    object-fit: contain; /* ensures the entire 9:16 video fits without cropping */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Bottom UI */
+.bottom-ui {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.story-narrative {
+    width: 100%;
+    padding: 1.2rem;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.story-narrative p {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* Controls */
+.controls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+button {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    background-color: #FF8BA7;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    font-size: 1.05rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 139, 167, 0.4);
+    transition: transform 0.2s, background-color 0.2s;
+    flex: 1; /* allows buttons to share space nicely */
+    max-width: 250px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.secondary-btn {
+    background-color: rgba(255, 255, 255, 0.7);
+    color: #FF7096;
+    box-shadow: none;
+    flex: 0.4; /* back button takes less space */
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Final Invitation Overlay */
+#invitation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 10%;
+    box-sizing: border-box;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.invitation-panel {
+    background: rgba(255, 255, 240, 0.85);
+    padding: 15px;
+    border-radius: 20px;
+    text-align: center;
+    width: 90%;
+    backdrop-filter: blur(4px);
+    color: var(--plum-text);
+}
+
+.invitation-panel h2 {
+    font-size: 1.4rem;
+    margin: 0 0 10px 0;
+}
+
+.invitation-panel p {
+    margin: 5px 0;
+    font-weight: 700;
+}
+
+.invitation-panel .date { font-size: 1.2rem; }
+.invitation-panel .venue { font-size: 1.1rem; }
+.invitation-panel .time { font-size: 1rem; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
