@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Aylin's 5th Birthday</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&family=Noto+Sans+Bengali:wght@400;500;600;700;800&family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <!-- Welcome Screen -->
         <div id="welcome-screen" class="screen active">
             <div class="card welcome-card">
-                <h1>You're Invited!</h1>
-                <p>Join Aylin on a magical journey...</p>
+                <h1 id="welcome-heading">You're Invited!</h1>
+                <p id="welcome-text">Join Aylin on a magical journey...</p>
                 <button id="start-btn">Open Invitation ✨</button>
             </div>
         </div>
@@ -27,10 +27,10 @@
                 <!-- Final Invitation Text Overlay -->
                 <div id="invitation-overlay" class="hidden">
                     <div class="invitation-panel">
-                        <h2>Aylin's 5th Birthday</h2>
-                        <p class="date">06.11.2026</p>
-                        <p class="venue">Mankundu, Dighi Gardens</p>
-                        <p class="time">11:00 am onwards</p>
+                        <h2 id="invitation-title">Aylin's 5th Birthday</h2>
+                        <p id="invitation-date" class="date">06 November, 2026 (Friday)</p>
+                        <p id="invitation-venue" class="venue">Mankundu, Dighi Gardens</p>
+                        <p id="invitation-time" class="time">11:00 am onwards</p>
                     </div>
                 </div>
             </div>

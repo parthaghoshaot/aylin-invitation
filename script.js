@@ -4,44 +4,68 @@ const storyScenes = [
         //videoSrc: ['videos/scene1_1.mp4', 'videos/scene1_2.mp4'],
         videoSrc: ['videos/scene1_1.mp4'],
         audioSrc: 'audio/scene1.m4a',
-        text: 'Hi, I am Aylin! ✨ Psst... I have a little secret, and I cannot wait to share it with you!',
-        buttonText: 'Tell me the secret 💫',
+        text: 'I have a secret, small but sweet. Come along for a birthday treat!',
+        buttonText: 'What’s the secret?',
+        textBn: 'একটা মিষ্টি গোপন কথা, জন্মদিনে হবে মজা!',
+        buttonTextBn: 'গোপন কথাটা কী?',
         bgColor: 'linear-gradient(135deg, #FFDAB9, #FFD1DC)'
     },
     {
         id: 's2',
         videoSrc: ['videos/scene2.mp4'],
         audioSrc: 'audio/scene2.m4a',
-        text: 'My 5th birthday is almost here! I closed my eyes, made the biggest wish ever, and it was all about celebrating with YOU.',
+        text: 'Five candles bright, one wish to do: My birthday wish is time with you!',
         buttonText: 'Let\'s pack our bags 🧳',
+        textBn: 'পাঁচটি মোমে জ্বলে আলো, তোমায় পেলে লাগবে ভালো!',
+        buttonTextBn: 'চলো, ব্যাগ গুছাই!',
         bgColor: 'linear-gradient(135deg, #FFDAB9, #FFD1DC)'
     },
     {
         id: 's3',
         videoSrc: ['videos/scene3_2.mp4', 'videos/scene3_1.mp4'],
         audioSrc: 'audio/scene3.m4a',
-        text: 'Teddy is in, snacks are in, and my suitcase is zipped up tight. Are you ready for an adventure too?',
-        buttonText: 'Ready, set, take off! ✈️',
+        text: 'My bag is packed, my teddy’s tight. Let’s go exploring, what a sight!',
+        buttonText: 'Off we fly!',
+        textBn: 'ব্যাগ গুছিয়ে, টেডি সাথে, চলো ঘুরি নতুন পথে!',
+        buttonTextBn: 'চলো উড়ে যাই!',
         bgColor: 'linear-gradient(135deg, #FFD1DC, #AEC6CF)'
     },
     {
         id: 's4',
         videoSrc: ['videos/scene4.mp4', 'videos/scene5.mp4'],
         audioSrc: 'audio/scene4.m4a',
-        text: 'Wohoo! All the way to Chandannagar! 🎈',
-        buttonText: 'Join my birthday party 🏡',
+        text: 'We made it here, hooray, hooray! In Chandannagar, let’s laugh and play!',
+        buttonText: 'Let\'s join the party!',
+        textBn: 'চন্দননগর, এসে গেছি! হাসি-গানে মেতে উঠি!',
+        buttonTextBn: 'আমার পার্টিতে আসবেন তো?',
         bgColor: 'linear-gradient(135deg, #AEC6CF, #FFFFFF)'
     },
     {
         id: 's6',
         videoSrc: ['videos/scene6.mp4'],
         audioSrc: 'audio/scene6.m4a',
-        text: 'Drums are beating, lights are glowing, come celebrate my 5th birthday with me! 🎉',
-        buttonText: 'Replay the journey 🔄',
+        text: 'Clap your hands and tap your feet! Turning five is such a treat!',
+        buttonText: 'Let’s go again!',
+        textBn: 'এসো সবাই, আনন্দ ভাগ করি, হাসি-খুশিতে দিনটা ভরি!',
+        buttonTextBn: 'চলো আবার দেখি!',
         bgColor: 'linear-gradient(135deg, #FFD700, #FF6347)',
         showOverlay: true
     }
 ];
+
+const bengaliCopy = {
+    pageTitle: 'আইলিনের পঞ্চম জন্মদিন',
+    welcomeHeading: 'তোমায় জানাই নিমন্ত্রণ!',
+    welcomeText: 'আইলিনের সাথে চলো, জাদুর দেশে!',
+    startButton: 'চলো, খুলে দেখি!',
+    backButton: 'ফিরে দেখা',
+    invitationTitle: 'আইলিনের পঞ্চম জন্মদিন',
+    invitationDate: '৬ নভেম্বর, ২০২৬, শুক্রবার',
+    invitationVenue: 'মাঙ্কুন্ডু, দিঘি গার্ডেনস',
+    invitationTime: 'সকাল ১১টা থেকে'
+};
+
+const isBengali = new URLSearchParams(window.location.search).get('lang') === 'bn';
 
 let currentSceneIndex = 0;
 let currentSubVideoIndex = 0; // Tracks which video segment in the array is playing
@@ -57,6 +81,19 @@ const storyVideo = document.getElementById('story-video');
 const sceneAudio = document.getElementById('scene-audio');
 const invitationOverlay = document.getElementById('invitation-overlay');
 const narrativeText = document.getElementById('narrative-text');
+
+if (isBengali) {
+    document.documentElement.lang = 'bn';
+    document.title = bengaliCopy.pageTitle;
+    document.getElementById('welcome-heading').innerText = bengaliCopy.welcomeHeading;
+    document.getElementById('welcome-text').innerText = bengaliCopy.welcomeText;
+    startBtn.innerText = bengaliCopy.startButton;
+    prevBtn.innerText = bengaliCopy.backButton;
+    document.getElementById('invitation-title').innerText = bengaliCopy.invitationTitle;
+    document.getElementById('invitation-date').innerText = bengaliCopy.invitationDate;
+    document.getElementById('invitation-venue').innerText = bengaliCopy.invitationVenue;
+    document.getElementById('invitation-time').innerText = bengaliCopy.invitationTime;
+}
 
 startBtn.addEventListener('click', () => {
     welcomeScreen.classList.remove('active');
@@ -82,7 +119,7 @@ function loadScene(index) {
     
     // Update UI elements
     document.body.style.background = scene.bgColor;
-    narrativeText.innerText = scene.text;
+    narrativeText.innerText = isBengali ? scene.textBn : scene.text;
     
     if (scene.showOverlay) {
         invitationOverlay.classList.remove('hidden');
@@ -90,7 +127,7 @@ function loadScene(index) {
         invitationOverlay.classList.add('hidden');
     }
     
-    nextBtn.innerText = scene.buttonText;
+    nextBtn.innerText = isBengali ? scene.buttonTextBn : scene.buttonText;
     nextBtn.classList.add('hidden');
     
     if (index === 0) {

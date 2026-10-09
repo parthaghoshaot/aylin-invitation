@@ -73,6 +73,12 @@ h1 {
     font-size: 2.2rem;
 }
 
+html[lang="bn"] body,
+html[lang="bn"] h1,
+html[lang="bn"] button {
+    font-family: 'Noto Sans Bengali', sans-serif;
+}
+
 /* Mobile-only Story Screen Layout */
 #story-screen {
     padding: 12px 12px calc(12px + env(safe-area-inset-bottom)) 12px;
