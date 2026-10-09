@@ -43,7 +43,6 @@ const storyScenes = [
     {
         id: 's6',
         videoSrc: ['videos/scene6.mp4'],
-        audioSrc: 'audio/scene6.m4a',
         text: 'Clap your hands and tap your feet! Turning five is such a treat!',
         buttonText: 'Let’s go again!',
         textBn: 'এসো সবাই, আনন্দ ভাগ করি, হাসি-খুশিতে দিনটা ভরি!',
@@ -79,6 +78,10 @@ const nextBtn = document.getElementById('next-btn');
 const prevBtn = document.getElementById('prev-btn');
 const storyVideo = document.getElementById('story-video');
 const sceneAudio = document.getElementById('scene-audio');
+const bgSong = new Audio('audio/scene6.m4a');
+bgSong.loop = true;
+bgSong.playbackRate = 0.7;
+bgSong.volume = 0.4;
 const invitationOverlay = document.getElementById('invitation-overlay');
 const narrativeText = document.getElementById('narrative-text');
 
@@ -98,6 +101,7 @@ if (isBengali) {
 startBtn.addEventListener('click', () => {
     welcomeScreen.classList.remove('active');
     storyScreen.classList.add('active');
+    bgSong.play().catch(e => console.log('Song play error:', e));
     loadScene(0);
 });
 
