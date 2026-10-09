@@ -132,7 +132,7 @@ function loadScene(index) {
     }
     
     nextBtn.innerText = isBengali ? scene.buttonTextBn : scene.buttonText;
-    nextBtn.classList.add('hidden');
+    nextBtn.classList.remove('hidden');
     
     if (index === 0) {
         prevBtn.classList.add('hidden');
